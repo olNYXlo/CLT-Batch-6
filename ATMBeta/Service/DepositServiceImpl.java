@@ -18,11 +18,11 @@ public class DepositServiceImpl implements DepositService {
 			System.out.print("Wish to Continue? (y\\n) ");
 			Scanner sc = new Scanner(System.in);
 			char ch = sc.next().charAt(0);
-			Switch (ch){
-				case y:
+			switch (ch){
+				case 'y':
 					//continue to transaction menu
 					break;
-				case n:
+				case 'n':
 					System.out.print("Thanks for Banking With us!!!");
 					//logout
 					break;
