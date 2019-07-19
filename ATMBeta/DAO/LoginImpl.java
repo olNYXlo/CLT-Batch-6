@@ -1,6 +1,7 @@
 package DAO;
 
 import POJO.Account;
+import java.util.HashMap;
 
 public class LoginImpl implements Login {
 	
@@ -8,7 +9,8 @@ public class LoginImpl implements Login {
 
 	@Override
 	public boolean LoginCheck(Account ref) {
-		if(ref.getUserID().contentEquals("abc@gmail.com") && ref.getPassword().contentEquals("1234xyz")) {
+		
+		if(AccList.containsKey(ref.getUserID()) && ref.getPassword().contentEquals(AccList.get(ref.getUserID()).getPassword())) {
 			status = true;			
 		}
 		else {

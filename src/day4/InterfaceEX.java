@@ -1,4 +1,4 @@
-package Assignments;
+package day4;
 
 //interface is a fully abstract class
 // require use of 'implements' keyword

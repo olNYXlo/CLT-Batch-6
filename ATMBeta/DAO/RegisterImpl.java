@@ -7,14 +7,15 @@ public class RegisterImpl implements Register {
 	boolean RegStatus;
 
 	@Override
-	public boolean RegisterCheck(Account ref) {
+	public boolean RegisterCheck(String ref) {
 
-		if(ref.getUserID().contentEquals("abc@gmail.com") && ref.getPassword().contentEquals("1234xyz")) {
-			RegStatus = true;			
-		}
-		else {
-			RegStatus = false;;
-		}
+			if(!AccList.containsKey(ref.getUserID())) {
+				RegStatus = true;
+			}
+			else if (AccList.containsKey(ref.getUserID())){
+				RegStatus = false;
+			}			
+
 		
 		return RegStatus;		
 		

@@ -1,7 +1,10 @@
 package Service;
 
 
+import java.util.Scanner;
+
 import DAO.Register;
+import DAO.RegisterImpl;
 import POJO.Account;
 
 public class RegisterServiceImpl implements RegisterService {
@@ -9,20 +12,31 @@ public class RegisterServiceImpl implements RegisterService {
 	Register refRegister;
 
 	@Override
-	public void Register(Account ref) {
+	public void Register() {
 		
-		refRegister = new LoginImpl();
+		refRegister = new RegisterImpl();
 		
-		if(refRegister.RegisterCheck(ref)==true) {
-			System.out.print("logged in");
-			//launch transaction controller?
-		}
-		else {
-			System.out.print("logged out");
-			//launch login controller?
-		}		
+		boolean loopcheck = true;
+		
+		while (loopcheck) {
+			System.out.println("Enter email address: ");
+			Scanner sc = new Scanner(System.in);
+			String input = sc.next();
+			
+			if(refRegister.RegisterCheck(input)==true) {
+
+				//continue with register
+				loopcheck = false;
+				break;
+			}
+			else if (refRegister.RegisterCheck(input)==false){
+				System.out.println("email already exists");
+			}
+	
 		// TODO Auto-generated method stub
 
 	}
-
+	}
 }
+
+
