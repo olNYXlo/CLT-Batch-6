@@ -33,4 +33,5 @@ public class InheritanceEX{
 		ref.loginAuthentication2();
 		// child class method will be called
 	}
+	
 }
