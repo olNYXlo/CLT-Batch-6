@@ -9,10 +9,10 @@ public class RegisterImpl implements Register {
 	@Override
 	public boolean RegisterCheck(String ref) {
 
-			if(!AccList.containsKey(ref.getUserID())) {
+			if(!AccList.containsKey(ref)) {
 				RegStatus = true;
 			}
-			else if (AccList.containsKey(ref.getUserID())){
+			else if (AccList.containsKey(ref)){
 				RegStatus = false;
 			}			
 

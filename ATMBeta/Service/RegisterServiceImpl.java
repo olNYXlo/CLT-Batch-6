@@ -32,6 +32,7 @@ public class RegisterServiceImpl implements RegisterService {
 			else if (refRegister.RegisterCheck(input)==false){
 				System.out.println("email already exists");
 			}
+			sc.close();
 	
 		// TODO Auto-generated method stub
 

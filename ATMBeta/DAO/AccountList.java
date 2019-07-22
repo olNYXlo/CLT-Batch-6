@@ -1,7 +1,10 @@
 package DAO;
 
 import POJO.Account;
+
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 public class AccountList {
 	
@@ -33,7 +36,7 @@ public class AccountList {
 		a4.setBankBalance(4000);		
 		
 		
-		HashMap <String, Account> AccList = new HashMap <String, Account>();
+		Map<String, Account> AccList = Collections.synchronizedMap(new HashMap <String, Account>());
 		AccList.put(a1.getUserID(),a1);
 		AccList.put(a2.getUserID(),a2);
 		AccList.put(a3.getUserID(),a3);		

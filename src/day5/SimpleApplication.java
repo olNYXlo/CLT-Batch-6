@@ -2,7 +2,7 @@ package day5;
 
 class A {
 	
-	
+	// can use either contructor or setter method for association
 	B refB;
 
 
@@ -14,6 +14,15 @@ class A {
 	public void setRefB(B refB) {
 		this.refB = refB;
 	}
+	
+	
+	//to use constructor instead of setter method
+	/* 
+	 A(B refB){
+	 	this.refB = refB
+	 } 
+	 
+	 */
 
 }
 
