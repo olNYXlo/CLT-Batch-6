@@ -15,8 +15,7 @@ public class LoginController2 {
 	
 	public void LoginControl() {
 
-		Scanner sc = new Scanner(System.in);
-		int Choice = sc.nextInt();
+		
 		boolean loopcheck = true;
 		while (loopcheck) {
 			System.out.println("User Home Page:");
@@ -24,7 +23,10 @@ public class LoginController2 {
 			System.out.println("2. Login");
 			System.out.println("3. Forget Password");
 			System.out.println("4. Logout (exit)");
-			System.out.println("Enter Your Choice :");			
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("Enter Your Choice :");
+			int Choice = sc.nextInt();
 			switch(Choice){
 			case 1:
 				//run register service
