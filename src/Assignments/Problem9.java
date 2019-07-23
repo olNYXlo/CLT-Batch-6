@@ -6,6 +6,9 @@ public class Problem9 {
 	
 	
 /*	
+ * 
+ * tried to implement arraylist but not sure how to use it yet
+ * 
 	public static boolean checkarr(int[] arr,Integer x) {
 		
 		ArrayList<Integer> arrans = new ArrayList<Integer>(arr.length);
@@ -26,6 +29,8 @@ public class Problem9 {
 	}
 	
 	*/
+	
+	//checking if a value exists within an array by iteration of array elements
 	public static boolean check(int[] arr, int n) {
 		boolean ans = false;
 		int i =0;

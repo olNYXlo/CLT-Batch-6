@@ -1,7 +1,7 @@
 package Assignments;
 
 public class Problem8 {
-
+	// inverted pyramid made of * that follow a doubling pattern
 	public static void revpyramiddbl(int n) {
 		for (int i=n;i>0;i--) {
 			if (i==1) {

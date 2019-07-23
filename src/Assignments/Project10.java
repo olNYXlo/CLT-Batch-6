@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Project10 {
-
+	// simple check function that checks if the array contains the input integer
 	public static boolean check(int[] arr, int n) {
 		boolean ans = false;
 		int i =0;
@@ -18,6 +18,9 @@ public class Project10 {
 		return ans;
 	}
 	
+	//As trying to find common elements in all 3 arrays, first find the array with the most elements.
+	// Then, iterate through the elements and compare against the other 2 arrays. If it exists in all arrays, add the element
+	// to a newly created list.
 	public static void commonele(int[] arr1, int[] arr2, int[] arr3) {
 		if (arr1.length>arr2.length && arr1.length>arr3.length) {
 			List<Integer> ansList = new ArrayList<Integer>();

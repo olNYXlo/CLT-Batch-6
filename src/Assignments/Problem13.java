@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Problem13 {
 	
+	
+	//Similar to Problem 11 with the added requirement to return the length of the new array
 	public static void removeduplen(int[] arr) {
 		
 		ArrayList<Integer> arrans = new ArrayList<Integer>(arr.length);

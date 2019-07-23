@@ -1,6 +1,7 @@
 package Assignments;
 
 public class Problem2 {
+	//pyramid made of numbers starting from 1
 	
 	public static void pyramidnum(int n) {
 		for (int i=1;i<=n;i++) {

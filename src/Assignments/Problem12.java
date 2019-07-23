@@ -4,7 +4,12 @@ import java.util.Arrays;
 
 public class Problem12 {
 	
-	
+	//finding the 2nd smallest and 2nd largest element in an array
+	//first sort the array
+	//Do a logical check on the array elements
+	// To get the 2nd smallest element, the 2nd element should be larger than the first element.
+	// if they are equal, compare the next elements until the logic is true
+	// similar implementation for the 2nd largest element
 	public static void min2max2(int[] arr){
 		Arrays.sort(arr);
 		int i = 0;

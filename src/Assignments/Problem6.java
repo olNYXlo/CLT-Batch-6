@@ -1,7 +1,7 @@
 package Assignments;
 
 public class Problem6 {
-
+	// pyramid made of * that have a doubling pattern
 	public static void pyramiddbl(int n) {
 		for (int i=1;i<=n;i++) {
 			if (i==1) {
