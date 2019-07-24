@@ -1,12 +1,11 @@
 package POJO;
 
 public class Account {
-	
+	// Account details of userID, Password, SecurityKey & Bank Balance
 	private String userID;
 	private String password;
 	private String SecurityKey;
 	private double BankBalance;
-	private int LoginStatus;
 	public String getUserID() {
 		return userID;
 	}
@@ -22,12 +21,7 @@ public class Account {
 	public String getSecurityKey() {
 		return SecurityKey;
 	}
-	public int getLoginStatus() {
-		return LoginStatus;
-	}
-	public void setLoginStatus(int loginStatus) {
-		LoginStatus = loginStatus;
-	}
+
 	public void setSecurityKey(String securityKey) {
 		SecurityKey = securityKey;
 	}

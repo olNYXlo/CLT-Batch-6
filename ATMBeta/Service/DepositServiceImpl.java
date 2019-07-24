@@ -1,42 +1,32 @@
 package Service;
 
-import java.util.Scanner;
 
+
+import DAO.Deposit;
+import DAO.DepositImpl;
 import POJO.Account;
 
 
 public class DepositServiceImpl implements DepositService {
 	
-	Account refAcc;
+	Deposit refDep;// create a reference that points to null until method is run, only then a proper reference is given
+	//checks validity of deposit. If amount is positive or negative
 
 	@Override
-	public void deposit(double x) {
-		// TODO Auto-generated method stub
-		if(x > 0){
-			refAcc.setBankBalance(refAcc.getBankBalance()+x);
-			System.out.print(x + " dollar deposited successfully!!\n");
-			System.out.print("Wish to Continue? (y\\n) ");
-			Scanner sc = new Scanner(System.in);
-			char ch = sc.next().charAt(0);
-			switch (ch){
-				case 'y':
-					//continue to transaction menu
-					break;
-				case 'n':
-					System.out.print("Thanks for Banking With us!!!");
-					//logout
-					break;
-				default:
-					System.out.print("invalid command");
-					//loop back for input
-					break;
-						
-			}
-			
+	public boolean checkStatus(double amt, Account Acc) {
+		
+		boolean Status;
+		refDep = new DepositImpl();
+		
+		if(refDep.DepositCheck(amt,Acc)==true) {
+			Status = true;
 		}
-		else if (x<0){
-			System.out.println("Amount Can't Be Negative");
+		else {
+			Status = false;
 		}
-	}
+		return Status;
+
 
 }
+}
+

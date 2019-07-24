@@ -2,13 +2,25 @@ package DAO;
 
 import POJO.Account;
 
-import java.util.Collections;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class AccountList {
 	
-	private static void main (String[] args) {
+	//Create a hashmap of Accounts
+	//Key being the userID
+	//value being the Account object (userID, password, securitykey & bank balance)
+	
+	private static Map<String, Account> ACL = new HashMap <String, Account>();
+	
+	// Made the getter for the generated AccountList as public and static so it can be accessed by the various services
+	
+	public static Map<String, Account> getACL() {
+		return ACL;
+	}
+
+	public static Map<String, Account> main () {
 		
 		Account a1 = new Account();
 		Account a2 = new Account();
@@ -35,14 +47,12 @@ public class AccountList {
 		a4.setSecurityKey("white");
 		a4.setBankBalance(4000);		
 		
-		
-		Map<String, Account> AccList = Collections.synchronizedMap(new HashMap <String, Account>());
-		AccList.put(a1.getUserID(),a1);
-		AccList.put(a2.getUserID(),a2);
-		AccList.put(a3.getUserID(),a3);		
-		AccList.put(a4.getUserID(),a4);	
-	
-		
+
+		ACL.put(a1.getUserID(),a1);
+		ACL.put(a2.getUserID(),a2);
+		ACL.put(a3.getUserID(),a3);		
+		ACL.put(a4.getUserID(),a4);	
+		return ACL;	
 		
 		
 		

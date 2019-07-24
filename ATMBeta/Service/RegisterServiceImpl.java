@@ -1,7 +1,7 @@
 package Service;
 
 
-import java.util.Scanner;
+import java.util.Map;
 
 import DAO.Register;
 import DAO.RegisterImpl;
@@ -9,35 +9,31 @@ import POJO.Account;
 
 public class RegisterServiceImpl implements RegisterService {
 	
-	Register refRegister;
+	Register refRegister;// create a reference that points to null until method is run, only then a proper reference is given
+	boolean Status = false;
 
+	//checks if given username already exists in the records. If exists, throw an error message and prompt another input.
+		//if given username does not exist, continue with registration process
 	@Override
-	public void Register() {
+	public boolean Register(String input, Map<String,Account> ACL) {
 		
 		refRegister = new RegisterImpl();
 		
-		boolean loopcheck = true;
-		
-		while (loopcheck) {
-			System.out.println("Enter email address: ");
-			Scanner sc = new Scanner(System.in);
-			String input = sc.next();
+		if(!refRegister.RegisterCheck(input, ACL)) {
+			System.out.println("email already exists");
+			Status = false;
 			
-			if(refRegister.RegisterCheck(input)==true) {
+		}
+		else if (refRegister.RegisterCheck(input, ACL)) {
+			Status = true;
+			
+		}
+		
+		return Status;
 
-				//continue with register
-				loopcheck = false;
-				break;
-			}
-			else if (refRegister.RegisterCheck(input)==false){
-				System.out.println("email already exists");
-			}
-			sc.close();
-	
-		// TODO Auto-generated method stub
-
-	}
 	}
 }
+
+
 
 

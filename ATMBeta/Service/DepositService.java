@@ -1,6 +1,12 @@
 package Service;
 
+
+import POJO.Account;
+
 public interface DepositService {
-	void deposit (double x);
+
+	
+	//checks validity of deposit. If amount is positive or negative
+	boolean checkStatus(double amt, Account Acc);
 
 }
