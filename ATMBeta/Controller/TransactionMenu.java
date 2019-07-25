@@ -9,6 +9,7 @@ import Service.WithdrawServiceImpl;
 
 public class TransactionMenu{
 	
+	//launches the TransactionMenu after logging in
 	
 	public static void main(Account Acc) {
 		
@@ -16,7 +17,7 @@ public class TransactionMenu{
 		//same concept of implementing logical loops to create "recursive" functions
 		
 		boolean loopcheck = true;
-		BankAccount BA = Acc.getBA();
+		BankAccount BA = Acc.getBA(); // Retrieves the bank account of the logged in user once entered this menu. As any transactions done will be based on this
 		while (loopcheck) {
 			
 			//displays the available transaction options after loggin in
@@ -40,7 +41,7 @@ public class TransactionMenu{
 				boolean loopcheckContinue = true;
 				//loop to make the checking of if the user wants to continue with another transaction until a valid response is given
 				while (loopcheckContinue) {
-					System.out.print("Wish to Continue? (y\\n) ");
+					System.out.println("Wish to Continue? (y\\n) ");
 					ch = sc.next().charAt(0);
 					System.out.println("======================");
 					switch (ch){
@@ -49,7 +50,7 @@ public class TransactionMenu{
 						loopcheckContinue = false;
 						break;
 					case 'n':
-						System.out.print("Thanks for Banking With us!!!");
+						System.out.println("Thanks for Banking With us!!!");
 						System.out.println("======================");
 						//loops back to base menu.
 						//changes the global loopcheck for the transaction menu to be false, breaking out of the while loop
@@ -59,7 +60,7 @@ public class TransactionMenu{
 						//logout
 						break;
 					default:
-						System.out.print("invalid command");
+						System.out.println("invalid command");
 						System.out.println("======================");
 						//loop back for input
 						break;
@@ -85,7 +86,7 @@ public class TransactionMenu{
 					if(refDepImpl.checkStatus(amt, Acc)==true) {
 						double newBalance = BA.getBankBalance() + amt;
 						BA.setBankBalance(newBalance);//sets the account bank balance
-						System.out.print(amt + " dollar deposited successfully!!\n");
+						System.out.println(amt + " dollar deposited successfully!!\n");
 						System.out.println("======================");
 						loopcheckDep = false;
 					}
@@ -99,7 +100,7 @@ public class TransactionMenu{
 				
 				while (loopcheckContinue2) {
 					//loop to make the checking of if the user wants to continue with another transaction until a valid response is given
-					System.out.print("Wish to Continue? (y\\n) ");
+					System.out.println("Wish to Continue? (y\\n) ");
 					ch2 = sc.next().charAt(0);
 					System.out.println("======================");
 					switch (ch2){
@@ -108,7 +109,7 @@ public class TransactionMenu{
 						loopcheckContinue2 = false;
 						break;
 					case 'n':
-						System.out.print("Thanks for Banking With us!!!");
+						System.out.println("Thanks for Banking With us!!!");
 						System.out.println("======================");
 						loopcheck = false;
 						loopcheckContinue2 = false;
@@ -118,7 +119,7 @@ public class TransactionMenu{
 						//logout
 						break;
 					default:
-						System.out.print("invalid command");
+						System.out.println("invalid command");
 						System.out.println("======================");
 						//loop back for input
 						break;
@@ -155,7 +156,7 @@ public class TransactionMenu{
 					boolean loopcheckContinue3 = true;
 					//loop to make the checking of if the user wants to continue with another transaction until a valid response is given
 					while (loopcheckContinue3) {
-						System.out.print("Wish to Continue? (y\\n) ");
+						System.out.println("Wish to Continue? (y\\n) ");
 						ch3 = sc.next().charAt(0);
 						System.out.println("======================");
 						switch (ch3){
@@ -164,7 +165,7 @@ public class TransactionMenu{
 							loopcheckContinue3 = false;
 							break;
 						case 'n':
-							System.out.print("Thanks for Banking With us!!!");
+							System.out.println("Thanks for Banking With us!!!");
 							System.out.println("======================");
 							loopcheck = false;
 							loopcheckContinue3 = false;
@@ -174,7 +175,7 @@ public class TransactionMenu{
 							//logout
 							break;
 						default:
-							System.out.print("invalid command");
+							System.out.println("invalid command");
 							System.out.println("======================");
 							//loop back for input for continuation of transactions
 							break;

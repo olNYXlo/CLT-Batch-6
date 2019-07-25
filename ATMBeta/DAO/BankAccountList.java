@@ -41,6 +41,9 @@ public class BankAccountList {
 		BankAccount ba4 = new BankAccount();
 		BankAccount ba5 = new BankAccount();
 		BankAccount ba6 = new BankAccount();
+		BankAccount ba7 = new BankAccount();
+		BankAccount ba8 = new BankAccount();
+		BankAccount ba9 = new BankAccount();
 		
 		ba1.setBankAcc("1234567891");
 		ba1.setBankBalance(1000);
@@ -60,6 +63,15 @@ public class BankAccountList {
 		ba6.setBankAcc("1234567896");
 		ba6.setBankBalance(6000);
 		
+		ba7.setBankAcc("1234567897");
+		ba7.setBankBalance(7000);
+		
+		ba8.setBankAcc("1234567898");
+		ba8.setBankBalance(8000);
+		
+		ba9.setBankAcc("1234567899");
+		ba9.setBankBalance(9000);
+		
 
 		BankAccL.put(ba1.getBankAcc(),ba1);
 		BankAccL.put(ba2.getBankAcc(),ba2);
@@ -67,6 +79,9 @@ public class BankAccountList {
 		BankAccL.put(ba4.getBankAcc(),ba4);
 		BankAccL.put(ba5.getBankAcc(),ba5);
 		BankAccL.put(ba6.getBankAcc(),ba6);
+		BankAccL.put(ba7.getBankAcc(),ba7);
+		BankAccL.put(ba8.getBankAcc(),ba8);
+		BankAccL.put(ba9.getBankAcc(),ba9);
 		
 		return BankAccL;
 
