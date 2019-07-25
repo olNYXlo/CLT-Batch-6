@@ -6,7 +6,7 @@ import Service.LoginService2Impl;
 
 import java.util.Scanner;
 
-public class LoginController2 {
+public class InitialLoginController {
 	
 	LoginService2 refLoginService2;
 	

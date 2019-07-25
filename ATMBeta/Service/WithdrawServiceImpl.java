@@ -1,10 +1,10 @@
 package Service;
 
 
-import DAO.DepositImpl;
 import DAO.Withdraw;
 import DAO.WithdrawImpl;
 import POJO.Account;
+import POJO.BankAccount;
 
 public class WithdrawServiceImpl implements WithdrawService {
 	
@@ -17,15 +17,16 @@ public class WithdrawServiceImpl implements WithdrawService {
 		
 		boolean Status = false;
 		refWith = new WithdrawImpl();
+		BankAccount BA = Acc.getBA();
 
-		if(Acc.getBankBalance()>= amt && amt > 0){
+		if(BA.getBankBalance()>= amt && amt > 0){
 			Status = true;
 		}
 		else if (amt<0){
 			System.out.println("Amount Can't Be Negative");
 			Status = false;
 		}
-		else if (Acc.getBankBalance()<amt && amt>0) {
+		else if (BA.getBankBalance()<amt && amt>0) {
 			Status = false;
 			System.out.println("Choice not available!!");
 		}

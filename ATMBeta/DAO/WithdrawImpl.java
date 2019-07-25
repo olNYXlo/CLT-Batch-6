@@ -2,6 +2,7 @@ package DAO;
 
 
 import POJO.Account;
+import POJO.BankAccount;
 
 public class WithdrawImpl implements Withdraw {
 
@@ -9,7 +10,8 @@ public class WithdrawImpl implements Withdraw {
 	@Override
 	public boolean WithdrawCheck(double amt, Account Acc) {
 		boolean status = false;
-		if (amt > 0 && amt < Acc.getBankBalance()) {
+		BankAccount BA = Acc.getBA();
+		if (amt > 0 && amt < BA.getBankBalance()) {
 			status = true;
 		} 
 		else if (amt<0){

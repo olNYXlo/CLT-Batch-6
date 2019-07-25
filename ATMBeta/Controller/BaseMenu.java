@@ -1,10 +1,13 @@
 package Controller;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 import DAO.AccountList;
+import DAO.BankAccountList;
 import POJO.Account;
+import POJO.BankAccount;
 import Service.ForgotPwServiceImpl;
 import Service.LoginService2Impl;
 import Service.RegisterServiceImpl;
@@ -18,6 +21,26 @@ public class BaseMenu {
 		//as the main method to generate the AccountList is static, can just call the method without creating an AccountList object
 		//The ACL is specified here to given all services (classes) that come after it access to its variables
 		Map<String, Account> ACL = AccountList.main();
+		Map<String, BankAccount> BankAccL = BankAccountList.main();
+		
+		//Links the 2 HashMap objects together.
+		
+		ACL.get("abc@gmail.com").setBA(BankAccL.get("1234567891"));
+		BankAccL.get("1234567891").setAccountLinked(true);
+		
+		ACL.get("abcd@gmail.com").setBA(BankAccL.get("1234567892"));
+		BankAccL.get("1234567892").setAccountLinked(true);
+		
+		ACL.get("abcde@gmail.com").setBA(BankAccL.get("1234567893"));
+		BankAccL.get("1234567893").setAccountLinked(true);
+		
+		ACL.get("abcdef@gmail.com").setBA(BankAccL.get("1234567894"));
+		BankAccL.get("1234567894").setAccountLinked(true);
+		
+		
+		//generates list of bank accounts registered by the bank. To be used to link to the customer's existing or newly set up online account
+		
+		
 		
 		//this loopcheck is to ensure the Base Menu will always be displayed after each choice
 		// as the value is kept at true so the while loop will always run
@@ -27,11 +50,13 @@ public class BaseMenu {
 		boolean loopcheck = true;
 		while (loopcheck) {
 			//Prints available options for user to pick from
+			System.out.println("=======DBS Bank=======");
 			System.out.println("User Home Page:");
 			System.out.println("1. Register");
 			System.out.println("2. Login");
 			System.out.println("3. Forget Password");
 			System.out.println("4. Logout (exit)");
+			System.out.println("======================");
 			System.out.println("Enter Your Choice :");	
 			Scanner sc = new Scanner(System.in);
 			int Choice = sc.nextInt();
@@ -52,7 +77,7 @@ public class BaseMenu {
 						
 						System.out.println("Enter email address: ");
 						String UserID = sc.next();
-						
+						System.out.println("======================");
 						if(refRegSerImpl.Register(UserID,ACL)==true) {
 							
 							//if RegisterCheck is true, means user ID does not exist in the records,
@@ -65,6 +90,7 @@ public class BaseMenu {
 							
 							System.out.println("Enter password : ");
 							String password = sc.next();
+							System.out.println("======================");
 							boolean loopcheckregpw = true;
 							
 							//logical loop to check if the given password is the same as the re-typed password
@@ -73,21 +99,52 @@ public class BaseMenu {
 							while (loopcheckregpw) {								
 								System.out.println("Re-Type Password :");
 								String repassword = sc.next();
+								System.out.println("======================");
 								if (password.equals(repassword)){
 									NewAcc.setPassword(repassword);
 									System.out.println("What is your favourite color?");
 									String SecurityKey = sc.next();
+									System.out.println("======================");
 									NewAcc.setSecurityKey(SecurityKey);
 									System.out.println(SecurityKey + " is your security key, in case you forget your password.");
+									System.out.println("======================");									
+									
+									boolean loopcheckregBankAcc = true;
+									
+									while (loopcheckregBankAcc) {
+										System.out.println("Enter Your 10 Digit Bank Account");
+										String BankAccNo = sc.next();
+										System.out.println("======================");
+										if (BankAccNo.length()==10 && BankAccL.containsKey(BankAccNo)) {
+											if (BankAccL.get(BankAccNo).isAccountLinked()==false) {
+												BankAccount BA = BankAccL.get(BankAccNo);
+												NewAcc.setBA(BA);
+												BA.setAccountLinked(true); // updates the BankAccountList to notify that the bank account has been linked
+												System.out.println("Bank Account is successfully linked to your account");
+												System.out.println("======================");
+												loopcheckregBankAcc = false; // breaks out of the logical loop to check if bank account exists and is linked to another account
+											}
+											else if (BankAccL.get(BankAccNo).isAccountLinked()==true) {
+												System.out.println("Bank Account is already linked to another account");
+												System.out.println("======================");
+											}
+																					
+											
+										} // end of if-else loop
+										
+										
+									}// end of processing if bank account number exists in record & take the necessary actions
+									
+									
+									
 									System.out.println("Registration Successful!!");
-									System.out.println("Enter Bank Balance");
-									double BankBalance = sc.nextDouble();
-									NewAcc.setBankBalance(BankBalance); // links user registered account to his bank account
-									ACL.put(UserID, NewAcc); // inserts the newly created account into the hashmap
+									System.out.println("======================");
+									ACL.put(UserID, NewAcc); // inserts the newly created account into the AccountList HashMap
 									loopcheckregpw = false;
 								}
 								else if (!password.equals(repassword)) {//prints error message if re-typed password does not match initially typed password 
-									System.out.println("Password doesn't match!!");								
+									System.out.println("Password doesn't match!!");	
+									System.out.println("======================");
 								}							
 								
 							}
@@ -113,8 +170,10 @@ public class BaseMenu {
 						
 						System.out.println("Enter User ID: ");
 						String UserID = sc.next();
+						System.out.println("======================");
 						System.out.println("Enter Password : ");
 						String pw = sc.next();
+						System.out.println("======================");
 						
 						if(refLogSerImpl.checkStatus(UserID, pw, ACL)==true) {
 							
@@ -131,6 +190,7 @@ public class BaseMenu {
 							}
 						else if (refLogSerImpl.checkStatus(UserID, pw, ACL)==false) {
 							System.out.println("Login failed");
+							System.out.println("======================");
 							//reverts back to prompt user to try to login again
 						}
 							
@@ -150,8 +210,10 @@ public class BaseMenu {
 						
 						System.out.println("Enter User ID: ");
 						String UserID = sc.next();
+						System.out.println("======================");
 						System.out.println("Enter Security Key : ");
 						String SK = sc.next();
+						System.out.println("======================");
 						
 						if(refFPWImpl.checkStatus(UserID, SK, ACL)) {
 							
@@ -159,10 +221,12 @@ public class BaseMenu {
 							
 							String pw = ACL.get(UserID).getPassword();
 							System.out.println("Your password is : "+ pw);//outputs the password of the account for the user
+							System.out.println("======================");
 							loopcheckFPW=false; // closes the loop that continues to prompt the user to enter the correct security key								
 							}
 						else {
 							System.out.println("Security Key does not match");
+							System.out.println("======================");
 						}
 							
 						}		
@@ -176,6 +240,7 @@ public class BaseMenu {
 					break;
 				default: // Invalid Choice
 					System.out.println("Invalid Choice");
+					System.out.println("======================");
 					//loops back to base menu to prompt user for a valid choice
 					break;			
 			}

@@ -6,6 +6,18 @@ public class Account {
 	private String password;
 	private String SecurityKey;
 	private double BankBalance;
+	
+	
+	private BankAccount BA;
+	
+	public BankAccount getBA() {
+		return BA;
+	}
+	public void setBA(BankAccount bA) {
+		BA = bA;
+	}
+	
+	
 	public String getUserID() {
 		return userID;
 	}
@@ -25,12 +37,7 @@ public class Account {
 	public void setSecurityKey(String securityKey) {
 		SecurityKey = securityKey;
 	}
-	public double getBankBalance() {
-		return BankBalance;
-	}
-	public void setBankBalance(double d) {
-		BankBalance = d;
-	}
+
 	
 
 }

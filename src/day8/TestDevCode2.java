@@ -8,7 +8,7 @@ public class TestDevCode2 {
 
 	@Test
 	
-	public void testCase2() throws NumberFormatException, IOException {
+	public void testCase2() throws IOException {
 		DevCode2.logic();
 		
 	}

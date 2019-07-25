@@ -23,7 +23,7 @@ public class DevCode2 {
 			if(ptr.equals("abc")) {
 				System.out.println("same");
 			}
-			else if (ptr.equals("abc")) {
+			else {
 				System.out.println("different");
 			}
 		}
