@@ -1,7 +1,12 @@
+/atmapp/
+/controllers/
+/atmpojo/
+/daoobj/
+/serbice/
+/atmcontrollers/
 /DAO/
-/POJO/
 /Service/
-/day8/
+/atmdao/
 /Controller/
-/Application/
-/Assignments/
+/atmservice/
+/day8/

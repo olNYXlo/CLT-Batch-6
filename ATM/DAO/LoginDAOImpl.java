@@ -1,6 +1,7 @@
 package DAO;
 
 import POJO.User;
+import atmdao.Login;
 
 public class LoginDAOImpl implements Login {
 	

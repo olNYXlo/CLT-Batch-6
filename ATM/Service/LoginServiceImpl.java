@@ -1,8 +1,9 @@
 package Service;
 
-import DAO.Login;
-import DAO.LoginImpl;
 import POJO.User;
+import atmdao.Login;
+import atmdao.LoginImpl;
+import atmservice.LoginService2;
 
 public class LoginServiceImpl implements LoginService2 {
 	

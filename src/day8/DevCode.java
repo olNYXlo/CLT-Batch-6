@@ -31,7 +31,7 @@ public class DevCode {
 		*/
 		
 			
-		System.out.println(b);
+		System.out.println(a);
 		
 		
 	} 

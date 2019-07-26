@@ -3,8 +3,8 @@ package Controller;
 import java.util.Scanner;
 
 import POJO.User;
-import Service.LoginService2;
-import Service.LoginService2Impl;
+import atmservice.LoginService2;
+import atmservice.LoginService2Impl;
 
 public class TransactionController {
 
