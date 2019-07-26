@@ -11,5 +11,5 @@ public class ATMApp {
 		
 		
 
-	}
-}
+	}// end of main method
+}// end of ATMApp class

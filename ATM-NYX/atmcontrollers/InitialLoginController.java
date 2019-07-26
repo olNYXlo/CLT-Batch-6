@@ -51,7 +51,7 @@ public class InitialLoginController {
 		}
 		}
 		
-		sc.close();
+
 		
 		
 		userinput();

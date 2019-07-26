@@ -27,25 +27,6 @@ public class AccountList {
 		Account a3 = new Account();
 		Account a4 = new Account();
 		
-		BankAccount ba1 = new BankAccount();
-		BankAccount ba2 = new BankAccount();
-		BankAccount ba3 = new BankAccount();
-		BankAccount ba4 = new BankAccount();
-		
-		ba1.setBankAcc("1234567891");
-		ba1.setBankBalance(1000);
-		
-		
-		ba2.setBankAcc("1234567892");
-		ba2.setBankBalance(2000);
-		
-		
-		ba3.setBankAcc("1234567893");
-		ba3.setBankBalance(3000);
-		
-		
-		ba4.setBankAcc("1234567894");
-		ba4.setBankBalance(4000);
 		
 		
 		a1.setUserID("abc@gmail.com");
@@ -73,7 +54,7 @@ public class AccountList {
 		ACL.put(a2.getUserID(),a2);
 		ACL.put(a3.getUserID(),a3);		
 		ACL.put(a4.getUserID(),a4);	
-		return ACL;	
+		return ACL;	//returns list of online login accounts that exist
 		
 		
 		

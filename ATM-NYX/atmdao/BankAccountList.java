@@ -83,7 +83,7 @@ public class BankAccountList {
 		BankAccL.put(ba8.getBankAcc(),ba8);
 		BankAccL.put(ba9.getBankAcc(),ba9);
 		
-		return BankAccL;
+		return BankAccL; // returns list of bank accounts
 
 	}
 }

@@ -3,7 +3,7 @@ package DAO;
 import POJO.User;
 import atmdao.Login;
 
-public class LoginDAOImpl implements Login {
+public class LoginDAOImpl implements LoginDAO {
 	
 	boolean status;
 	
@@ -11,7 +11,7 @@ public class LoginDAOImpl implements Login {
 
 	@Override
 	public boolean loginValidate(User ref) {
-		if (ref.getUserID()=="abc@gmail.com" && ref.getUserPassword().contentEquals("password")) {
+		if (ref.getUserID().equals("abc@gmail.com") && ref.getUserPassword().equals("password")) {
 			status = true;
 		}
 		else {

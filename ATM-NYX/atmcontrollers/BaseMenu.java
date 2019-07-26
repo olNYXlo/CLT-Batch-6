@@ -1,6 +1,5 @@
 package atmcontrollers;
 
-
 import java.util.Map;
 import java.util.Scanner;
 
@@ -22,7 +21,9 @@ public class BaseMenu {
 		// method without creating an AccountList object
 		// The ACL is specified here to given all services (classes) that come after it
 		// access to its variables
-		//BankAccList is also created mainly to be used in register service to link newly created account
+		
+		// BankAccList is also created mainly to be used in register service to link
+		// newly created account
 		// with existing bank account
 		Map<String, Account> ACL = AccountList.main();
 		Map<String, BankAccount> BankAccL = BankAccountList.main();
@@ -49,7 +50,8 @@ public class BaseMenu {
 		// as the value is kept at true so the while loop will always run
 		// use of loopcheck makes it a "recursive" method that keeps calling itself
 
-		boolean loopcheck = true; // this value will always be true, hence the user will never be able to exit from this program or end it
+		boolean loopcheck = true; // this value will always be true, hence the user will never be able to exit
+									// from this program or end it
 		while (loopcheck) {
 			// Prints available options for user to pick from
 			System.out.println("=======DBS Bank=======");
@@ -78,8 +80,9 @@ public class BaseMenu {
 					System.out.println("Enter email address: ");
 					String UserID = sc.next();
 					System.out.println("======================");
-					if (refRegSerImpl.Register(UserID, ACL) == true && (UserID.contains("@gmail.com") || UserID.contains("@hotmail.com"))) {
-						//ensures a proper email address is used
+					if (refRegSerImpl.Register(UserID, ACL) == true
+							&& (UserID.contains("@gmail.com") || UserID.contains("@hotmail.com"))) {
+						// ensures a proper email address is used
 
 						// if RegisterCheck is true, means user ID does not exist in the records,
 						// so can create a new account object and put it into the AccountList HashMap
@@ -160,7 +163,7 @@ public class BaseMenu {
 					else {
 						System.out.println("invalid email address provided");
 						System.out.println("======================");
-						//prints error message for user who input invalid email address
+						// prints error message for user who input invalid email address
 					}
 
 				} // end of while loop
@@ -177,13 +180,35 @@ public class BaseMenu {
 					// if successful, loopchecklogin = false
 					// it could be unsuccessful due to wrong password being entered
 					// in which case the menu loops back to attempt the loginService again.
-
-					System.out.println("Enter User ID: ");
-					String UserID = sc.next();
-					System.out.println("======================");
+					String UserID= null;
+					
+					
+					//in the case of login failure due to wrong password entered, user will be directed back to start of login service
+					// where he has to enter a user id and password again
+					boolean loopcheckLoginUID = true;
+					while(loopcheckLoginUID) {
+						System.out.println("Enter User ID: ");
+						UserID = sc.next();
+						System.out.println("======================");
+						if (ACL.containsKey(UserID)==true) {							
+							loopcheckLoginUID = false;
+							//breaks out of the loop prompting valid user ID
+							
+						}
+						else {
+							System.out.println("User ID Account does not exist");
+							System.out.println("======================");
+							//loops back to prompt valid ID
+						}					
+						
+						
+					}// end of loopcheckLoginUID loop. Checking for valid user account that exists
+					
+					
 					System.out.println("Enter Password : ");
 					String pw = sc.next();
-					System.out.println("======================");
+					System.out.println("======================");				
+					
 
 					if (refLogSerImpl.checkStatus(UserID, pw, ACL) == true) {
 
@@ -239,8 +264,9 @@ public class BaseMenu {
 						System.out.println("======================");
 					}
 
-				}
+				} // end of loopcheckFPW
 				break;
+				//end of case 3 (forgot password service)
 
 			case 4:// Logout Service
 
@@ -248,13 +274,16 @@ public class BaseMenu {
 				// pointless service and could be removed as you are not even logged in yet
 
 				break;
+				//end of case 4 (logout service)
 			default: // Invalid Choice
 				System.out.println("Invalid Choice");
 				System.out.println("======================");
 				// loops back to base menu to prompt user for a valid choice
 				break;
-			}
+				//end of default case
+				// default case replaces "exception handling"? in the case of invalid command will route users back to the base menu
+			}// end of switch case
 
-		}
-	}
-}
+		}// end of loopcheck
+	}// end of launch method
+}// end of BaseMenu class
