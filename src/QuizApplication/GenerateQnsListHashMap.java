@@ -1,4 +1,4 @@
-package day10;
+package QuizApplication;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
