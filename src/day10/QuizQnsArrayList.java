@@ -3,9 +3,10 @@ package day10;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuizQns {
+public class QuizQnsArrayList {
 	
-	public static List refList = new ArrayList();
+	public static List refList = new ArrayList(); // made static so ArrayList of questions are available without creating a QuizQns object
+	// just have to run the main method to initialize the attribute refList
 
 	public static void main() {
 		

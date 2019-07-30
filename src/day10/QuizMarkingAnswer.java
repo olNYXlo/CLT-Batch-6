@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class QuizMarkingAnswer {
 
-	public static void checkAns(String c, String ans) {
+	public static void checkAns(String c, String ans) {// marks the question with the provided answer key
 
 		if (c.equalsIgnoreCase(ans)) {
 			QuizApplication.setScore(QuizApplication.getScore() + 1);
