@@ -23,6 +23,7 @@ public class FileWordCounterSentence {
 		File f = new File(filename); // creates reference to filename
 
 		if (f.exists()) { // checks if file exists
+			System.out.println(filename + " file exists");
 			fw = new FileWriter(f);
 			bw = new BufferedWriter(fw);
 			System.out.println("Enter Text To Write To File : ");
@@ -34,6 +35,7 @@ public class FileWordCounterSentence {
 
 			boolean loopcheck = true;
 			while (loopcheck) {
+				
 				System.out.println("Do you wish to write more text to the file? Y/N");
 				char c = sc.nextLine().charAt(0);
 				System.out.println("==============================");
@@ -61,6 +63,7 @@ public class FileWordCounterSentence {
 		} // end of if
 
 		else {// runs if file does not exist
+			System.out.println(filename + " file does not exist");
 			f.createNewFile(); // creates new file with the specified filename
 			fw = new FileWriter(f);
 			bw = new BufferedWriter(fw);
@@ -70,9 +73,11 @@ public class FileWordCounterSentence {
 			bw.write(filecontents);
 			bw.flush();
 			bw.newLine();
+			
 
 			boolean loopcheck = true;
 			while (loopcheck) {
+				
 				System.out.println("Do you wish to write more text to the file? Y/N");
 				char c = sc.nextLine().charAt(0);
 				System.out.println("==============================");
