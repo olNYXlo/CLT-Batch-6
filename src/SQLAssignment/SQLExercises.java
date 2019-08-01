@@ -21,9 +21,32 @@ package SQLAssignment;
  * 		OR
  * 		SELECT * from orders WHERE purch_amt <= 1000
  * Q5) SELECT * from orders WHERE purch_amt < 500 AND customer_id BETWEEN 3002 AND 3004
- * Q6) 
+ * Q6) SELECT * from orders WHERE ord_date = 2012-10-05 OR (customer_id > 3002 AND purch_amt < 1000)
  * Q7) 
- * Q8) 
+ * Q8) SELECT * from orders WHERE purch_amt BETWEEN 500 AND 4000 AND purch_amt NOT IN (948.50,1983.43)
+ * Q9) SELECT SUM (purch_amt) from orders
+ * Q10) SELECT AVG(purch_amt) from orders
+ * Q11) 
+ * Q12) SELECT MAX(purch_amt) from order
+ * Q13) SELECT MIN(purch_amt) from order
+ * Q14) SELECT MAX(purch_amt),customer_id from SELECT DISTINCT customer_id from orders
+ * Q15) SELECT purch_amt,customer_id,ord_date from SELECT DISTINCT customer_id from orders WHERE MAX(purch_amt)
+ * Q16) 
+ * Q17) 
+ * Q18) 
+ * Q19) 
+ * Q20) 
+ * Q21) 
+ * Q22) 
+ * Q23) 
+ * Q24) 
+ * Q25) 
+ * Q26) 
+ * Q27) 
+ * Q28) 
+ * Q29) 
+ * Q30) 
+ * Q31) 
  */
 
 
