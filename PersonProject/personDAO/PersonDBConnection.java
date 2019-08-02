@@ -16,8 +16,8 @@ public class PersonDBConnection {
 		PersonDBConnection.ref = ref;
 	}
 
-	private PersonDBConnection() throws ClassNotFoundException, SQLException { // private constructor. cannot create
-																				// object outside of the class
+	private PersonDBConnection() throws ClassNotFoundException, SQLException { 
+		// private constructor. cannot create object outside of the class
 		// database URL
 		// 3306 is default port for mysql
 		String connectionURL = "jdbc:mysql://localhost:3306/batch6"; // batch6 is database name
@@ -37,7 +37,8 @@ public class PersonDBConnection {
 
 	public static Connection prepareConnection() throws ClassNotFoundException, SQLException{
 
-		if (ref == null) {// have to check this else will create multiple objects if code runs multiple times
+		if (ref == null) {
+			// have to check this else will create multiple objects if code runs multiple times
 			PersonDBConnection DB = new PersonDBConnection(); // initiates DB connection to mySQL
 
 		}

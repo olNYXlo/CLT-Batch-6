@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+// import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +75,7 @@ public class PersonDAOImpl implements PersonDAO {
 		
 		// st.executeUpdate(sql);
 		System.out.println("Addition of Person into Employee List Successfully");
-		con.close();
+		con.close(); // closes connection but does not do anything to the reference.
 		PersonDBConnection.setRef(null); // have to set to null. else even though connection closed, Connection ref is has some value
 
 	}// end of addPerson
