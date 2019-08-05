@@ -21,10 +21,17 @@ public class PersonDAOImpl implements PersonDAO {
 	void getConnection() {
 		try {
 			con = PersonDBConnection.prepareConnection();
+			
+			//con = PersonDBConnection2.myConnection();
+			//when using db.properties file to connect
+			// do not need to have catch block as already
+			// exception already handled in the myConnection method
 		}
 		catch(ClassNotFoundException | SQLException e) {
 			System.out.println("DB Connection Error..");
 		}
+		finally {}
+		
 	}// end of getConnection
 	
 	/* Connection conRef;
