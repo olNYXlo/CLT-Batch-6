@@ -10,7 +10,7 @@ import dbDAO.ATMDAOImpl;
 
 public class CheckBalanceServiceImpl {
 
-	public void CheckBalance(BankAccount BA) throws SQLException {
+	public void InvokeCheckBalance(BankAccount BA) throws SQLException {
 		
 		ATMDAO refDAO; // creates ATMDAO reference
 		refDAO = new ATMDAOImpl(); // creates ATMDAOImpl object

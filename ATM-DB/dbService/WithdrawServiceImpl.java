@@ -11,7 +11,7 @@ import dbPOJO.BankAccount;
 public class WithdrawServiceImpl implements WithdrawService {
 
 	@Override
-	public void withdraw(BankAccount BA) throws ClassNotFoundException, SQLException {
+	public void InvokeWithdraw(BankAccount BA) throws ClassNotFoundException, SQLException {
 
 		ATMDAO refDAO; // creates ATMDAO reference
 		refDAO = new ATMDAOImpl(); // creates ATMDAOImpl object

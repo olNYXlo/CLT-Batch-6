@@ -11,7 +11,7 @@ import dbPOJO.OnlineLoginAccount;
 public class LoginService2Impl implements LoginService2 {
 
 	@Override
-	public void Login() throws ClassNotFoundException, SQLException {
+	public void InvokeLogin() throws ClassNotFoundException, SQLException {
 
 		ATMDAO refDAO; // creates ATMDAO reference
 		refDAO = new ATMDAOImpl(); // creates ATMDAOImpl object

@@ -6,5 +6,5 @@ import dbPOJO.BankAccount;
 
 public interface WithdrawService {
 	//checks validity of withdraw. If amount is positive or negative and if the account has enough balance
-	public void withdraw(BankAccount BA) throws ClassNotFoundException, SQLException;
+	public void InvokeWithdraw(BankAccount BA) throws ClassNotFoundException, SQLException;
 }

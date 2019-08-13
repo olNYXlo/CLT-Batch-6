@@ -38,7 +38,7 @@ public class BaseMenu {
 
 			case 1:// Register Service
 				RegisterServiceImpl RSI = new RegisterServiceImpl();
-				RSI.Register();
+				RSI.InvokeRegister();
 				 // launch Register Service
 				break; // end of case 1
 				
@@ -46,7 +46,7 @@ public class BaseMenu {
 			case 2:// Login Service
 				
 				LoginService2Impl LSI = new LoginService2Impl();
-				LSI.Login();
+				LSI.InvokeLogin();
 				
 				break; // end of case 2;
 
@@ -54,7 +54,7 @@ public class BaseMenu {
 			case 3:// Forgot Password Service
 				
 				ForgotPwServiceImpl FPWSI = new ForgotPwServiceImpl();
-				FPWSI.forgotPw();
+				FPWSI.InvokeForgotPw();
 				
 
 				

@@ -11,7 +11,7 @@ import dbPOJO.OnlineLoginAccount;
 public class ForgotPwServiceImpl implements ForgotPwService {
 
 	@Override
-	public void forgotPw() throws ClassNotFoundException, SQLException {
+	public void InvokeForgotPw() throws ClassNotFoundException, SQLException {
 
 		ATMDAO refDAO; // creates ATMDAO reference
 		refDAO = new ATMDAOImpl(); // creates ATMDAOImpl object

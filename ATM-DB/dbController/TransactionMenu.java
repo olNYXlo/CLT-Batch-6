@@ -46,7 +46,7 @@ public class TransactionMenu {
 			case 1:// checking available balance
 
 				CheckBalanceServiceImpl CBSI = new CheckBalanceServiceImpl();
-				CBSI.CheckBalance(BA);
+				CBSI.InvokeCheckBalance(BA);
 
 				break;
 			// end of case 1
@@ -55,7 +55,7 @@ public class TransactionMenu {
 
 				DepositServiceImpl DSI = new DepositServiceImpl();
 
-				DSI.Deposit(BA);
+				DSI.InvokeDeposit(BA);
 
 				break;// end of case 2
 
@@ -63,7 +63,7 @@ public class TransactionMenu {
 
 				WithdrawServiceImpl WSI = new WithdrawServiceImpl();
 
-				WSI.withdraw(BA);
+				WSI.InvokeWithdraw(BA);
 
 				break;
 			// end of case 3

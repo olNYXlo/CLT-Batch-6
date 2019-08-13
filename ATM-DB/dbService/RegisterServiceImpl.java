@@ -11,7 +11,7 @@ import dbPOJO.BankAccount;
 public class RegisterServiceImpl implements RegisterService {
 
 	@Override
-	public void Register() throws ClassNotFoundException, SQLException {
+	public void InvokeRegister() throws ClassNotFoundException, SQLException {
 
 		ATMDAO refDAO; // creates ATMDAO reference
 		refDAO = new ATMDAOImpl(); // creates ATMDAOImpl object
