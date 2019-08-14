@@ -28,7 +28,7 @@ public class RegisterServiceImpl implements RegisterService {
 			Scanner sc = new Scanner(System.in);
 
 			System.out.println("Enter email address: ");
-			String UserID = sc.next();
+			String UserID = sc.nextLine();
 			System.out.println("======================================================================================");
 			if (ATMDAOImpl.checkIDExists(UserID) == false
 					&& (UserID.contains("@gmail.com") || UserID.contains("@hotmail.com"))) {
@@ -44,7 +44,7 @@ public class RegisterServiceImpl implements RegisterService {
 				NewAcc.setUserID(UserID); // sets UserID
 
 				System.out.println("Enter password : ");
-				String password = sc.next();
+				String password = sc.nextLine();
 				System.out.println("======================================================================================");
 				boolean loopcheckregpw = true;
 
@@ -54,12 +54,12 @@ public class RegisterServiceImpl implements RegisterService {
 
 				while (loopcheckregpw) {
 					System.out.println("Re-Type Password :");
-					String repassword = sc.next();
+					String repassword = sc.nextLine();
 					System.out.println("======================================================================================");
 					if (password.equals(repassword)) {
 						NewAcc.setPassword(repassword);
 						System.out.println("What is your favourite color?");
-						String SecurityKey = sc.next();
+						String SecurityKey = sc.nextLine();
 						System.out.println("======================================================================================");
 						NewAcc.setSecurityKey(SecurityKey);
 						System.out.println(SecurityKey + " is your security key, in case you forget your password.");
@@ -72,7 +72,7 @@ public class RegisterServiceImpl implements RegisterService {
 
 						while (loopcheckregBankAcc) {
 							System.out.println("Enter Your 10 Digit Bank Account");
-							String BankAccNo = sc.next();
+							String BankAccNo = sc.nextLine();
 							System.out.println("======================================================================================");
 							if (BankAccNo.length() == 10 && ATMDAOImpl.checkBankAccExists(BankAccNo)) {
 								// checks for valid Bank Account Number that exists in records
@@ -85,7 +85,7 @@ public class RegisterServiceImpl implements RegisterService {
 
 									while (loopcheckNRIC) {
 										System.out.println("Enter Your NRIC");
-										String NRIC = sc.next();
+										String NRIC = sc.nextLine();
 										System.out.println("======================================================================================");
 										if (NRIC.length() == 9 && ATMDAOImpl.checkNRIC(NRIC, BankAccNo)) { // checks for
 																											// valid
@@ -129,6 +129,10 @@ public class RegisterServiceImpl implements RegisterService {
 				} // end of loop check for registration password
 
 			} // end of if condition
+			else {
+				System.out.println("Please enter a valid email address");
+				System.out.println("======================================================================================");
+			} // end of else case for valid email address
 
 		} // end of while loop
 

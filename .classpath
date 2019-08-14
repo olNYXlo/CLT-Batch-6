@@ -8,6 +8,7 @@
 	<classpathentry kind="src" path="JDBC"/>
 	<classpathentry kind="src" path="PersonProject"/>
 	<classpathentry kind="src" path="ATM-DB"/>
+	<classpathentry kind="src" path="UnitTesting"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql"/>
 	<classpathentry kind="output" path="bin"/>

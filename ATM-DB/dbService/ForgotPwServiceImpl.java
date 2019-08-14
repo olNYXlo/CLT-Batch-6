@@ -28,7 +28,7 @@ public class ForgotPwServiceImpl implements ForgotPwService {
 			boolean loopcheckLoginUID = true;
 			while (loopcheckLoginUID) {
 				System.out.println("Enter User ID: ");
-				UserID = sc.next();
+				UserID = sc.nextLine();
 				System.out.println("======================================================================================");
 				if (ATMDAOImpl.checkIDExists(UserID)) {
 					loopcheckLoginUID = false;
@@ -41,7 +41,7 @@ public class ForgotPwServiceImpl implements ForgotPwService {
 			boolean loopcheckSK = true;
 			while (loopcheckSK) {
 				System.out.println("Enter Security Key : ");
-				String SK = sc.next();
+				String SK = sc.nextLine();
 				System.out.println("======================================================================================");
 
 				if (ATMDAOImpl.checkSK(SK, UserID)) {

@@ -35,7 +35,7 @@ public class LoginService2Impl implements LoginService2 {
 			boolean loopcheckLoginUID = true;
 			while (loopcheckLoginUID) {
 				System.out.println("Enter User ID: ");
-				UserID = sc.next();
+				UserID = sc.nextLine();
 				System.out.println("======================================================================================");
 				if (ATMDAOImpl.checkIDExists(UserID) == true) {
 					OLA.setUserID(UserID);
@@ -50,7 +50,7 @@ public class LoginService2Impl implements LoginService2 {
 			boolean loopcheckPw = true;
 			while (loopcheckPw) {
 				System.out.println("Enter Password : ");
-				String pw = sc.next();
+				String pw = sc.nextLine();
 				System.out.println("======================================================================================");
 				OLA.setPassword(pw);
 
