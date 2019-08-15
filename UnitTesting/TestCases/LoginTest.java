@@ -90,16 +90,12 @@ public class LoginTest extends TestCase{
 		assertEquals("Testing if UID matches","amos@gmail.com", Ac.getUserID());
 	}
 	
-	@Test
-	// test method to test the functionality
-	public void testInvalidInputNum() {
-		assertEquals("password".getClass(),123);
-	}
 	
 	@Test
 	// test method to test the functionality
 	public void testWrongPw() {
 		assertTrue("Testing if password does not match",(!Ac.getPw().equalsIgnoreCase("hello")));
+		
 	}
      
 
