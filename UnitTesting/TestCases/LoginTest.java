@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,7 +42,7 @@ public class LoginTest extends TestCase{
 		
 	}
 	
-	private Account Ac;
+	private Map<String,Account> AccL;
 	
 	
 	
@@ -67,14 +69,16 @@ public class LoginTest extends TestCase{
 
 
 		ResultSet rs = ps.executeQuery();
+		Map<String,Account> AccList = new HashMap<String,Account>();
 		
 		while(rs.next()) { // have to include this line when processing result set else will not be able to access rs.getString or anything not sure why
 			String UserID = rs.getString("UserID");
 			String pw = rs.getString("pw");
 			A.setPw(pw);
 			A.setUserID(UserID);
-			Ac = A;
+			AccList.put(UserID, A);
 			}
+		AccL = AccList;
 
     }
     
@@ -87,14 +91,27 @@ public class LoginTest extends TestCase{
 	@Test
 	// test method to test the functionality
 	public void testUIDExists() {
-		assertEquals("Testing if UID matches","amos@gmail.com", Ac.getUserID());
+		assertTrue("Testing if UID matches", AccL.containsKey("amos@gmail.com"));
+	}
+	
+	@Test
+	// test method to test the functionality
+	public void testUIDNotExists() {
+		assertTrue("Testing if UID matches", !AccL.containsKey("abc@gmail.com"));
 	}
 	
 	
 	@Test
 	// test method to test the functionality
 	public void testWrongPw() {
-		assertTrue("Testing if password does not match",(!Ac.getPw().equalsIgnoreCase("hello")));
+		assertTrue("Testing if password does not match",(!AccL.get("amos@gmail.com").getPw().equalsIgnoreCase("hello")));
+		
+	}
+	
+	@Test
+	// test method to test the functionality
+	public void testCorrectPw() {
+		assertTrue("Testing if password does not match",(AccL.get("amos@gmail.com").getPw().equalsIgnoreCase("password")));
 		
 	}
      
