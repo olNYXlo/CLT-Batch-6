@@ -1,7 +1,11 @@
 package dbPOJO;
 
+
+
+
 public class OnlineLoginAccount {
 	// Account details of userID, Password, SecurityKey & Bank Balance
+
 	private String userID;
 	private String password;
 	private String SecurityKey;	

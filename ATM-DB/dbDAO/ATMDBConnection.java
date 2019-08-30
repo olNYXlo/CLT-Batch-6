@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+
+
 public class ATMDBConnection {
 
 	public static Connection myConnection() { 

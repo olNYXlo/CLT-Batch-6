@@ -3,11 +3,21 @@ package dbController;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+
 import dbService.ForgotPwServiceImpl;
 import dbService.LoginService2Impl;
 import dbService.RegisterServiceImpl;
 
+
+
 public class BaseMenu {
+
+	RegisterServiceImpl RSI;
+
+	LoginService2Impl LSI;
+
+	ForgotPwServiceImpl FPWSI;
+	
 
 	// launches the base menu when the application starts
 
@@ -37,23 +47,21 @@ public class BaseMenu {
 			switch (Choice) {// Depending on user input, will start the relevant service
 
 			case 1:// Register Service
-				RegisterServiceImpl RSI = new RegisterServiceImpl();
+				RSI = new RegisterServiceImpl();
 				RSI.InvokeRegister();
 				 // launch Register Service
 				break; // end of case 1
 				
 
 			case 2:// Login Service
-				
-				LoginService2Impl LSI = new LoginService2Impl();
+								LSI = new LoginService2Impl();
 				LSI.InvokeLogin();
 				
 				break; // end of case 2;
 
 
 			case 3:// Forgot Password Service
-				
-				ForgotPwServiceImpl FPWSI = new ForgotPwServiceImpl();
+				FPWSI = new ForgotPwServiceImpl();
 				FPWSI.InvokeForgotPw();
 				
 

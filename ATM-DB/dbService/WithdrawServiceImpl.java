@@ -3,6 +3,7 @@ package dbService;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+
 import dbController.TransactionMenu;
 import dbDAO.ATMDAO;
 import dbDAO.ATMDAOImpl;
@@ -10,6 +11,8 @@ import dbPOJO.BankAccount;
 
 public class WithdrawServiceImpl implements WithdrawService {
 
+	ATMDAO refDAO; // creates ATMDAO reference
+	
 	@Override
 	public void InvokeWithdraw(BankAccount BA) throws ClassNotFoundException, SQLException {
 

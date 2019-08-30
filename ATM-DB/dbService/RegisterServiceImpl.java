@@ -3,6 +3,8 @@ package dbService;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+
+
 import dbDAO.ATMDAO;
 import dbDAO.ATMDAOImpl;
 import dbPOJO.OnlineLoginAccount;
@@ -10,6 +12,9 @@ import dbPOJO.BankAccount;
 
 public class RegisterServiceImpl implements RegisterService {
 
+	ATMDAO refDAO; // creates ATMDAO reference
+	
+	
 	@Override
 	public void InvokeRegister() throws ClassNotFoundException, SQLException {
 

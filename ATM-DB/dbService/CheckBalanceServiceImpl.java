@@ -3,19 +3,26 @@ package dbService;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+
+
 import dbController.TransactionMenu;
 import dbPOJO.BankAccount;
 import dbDAO.ATMDAO;
 import dbDAO.ATMDAOImpl;
 
+
 public class CheckBalanceServiceImpl {
+	
+
+	ATMDAO refDAO; // creates ATMDAO reference
 
 	public void InvokeCheckBalance(BankAccount BA) throws SQLException {
 		
-		ATMDAO refDAO; // creates ATMDAO reference
+		
 		refDAO = new ATMDAOImpl(); // creates ATMDAOImpl object
 		
 		refDAO.checkbalance(BA);
+		
 
 		
 		Scanner sc = new Scanner(System.in);

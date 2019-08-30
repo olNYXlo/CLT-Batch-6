@@ -1,5 +1,7 @@
 package dbPOJO;
 
+
+
 public class BankAccount {
 	
 	private String AccHolderNRIC;

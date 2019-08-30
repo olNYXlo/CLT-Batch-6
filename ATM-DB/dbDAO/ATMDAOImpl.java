@@ -5,10 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+
 import dbPOJO.BankAccount;
 import dbPOJO.OnlineLoginAccount;
 
+
 public class ATMDAOImpl implements ATMDAO {
+	
 
 	Connection con;
 	PreparedStatement ps,ps2;
@@ -191,10 +195,13 @@ public class ATMDAOImpl implements ATMDAO {
 
 	}
 
+	
 	@Override
 	public void register(OnlineLoginAccount OLA, BankAccount BA) throws SQLException {
+		
+		
 		getConnection(); // starts up DB connection
-
+		
 		ps = con.prepareStatement("INSERT INTO Account VALUES(?,?,?)"); // Create statement using SQL connection
 		
 		
@@ -251,7 +258,6 @@ public class ATMDAOImpl implements ATMDAO {
 		while(rs.next()) { // have to include this line when processing result set else will not be able to access rs.getString or anything not sure why
 			BA.setBankAcc(rs.getString("BankAccNo"));	
 			BA.setUserID(OLA.getUserID());
-			BA.setBankBalance(rs.getDouble("BankBalance"));
 			}
 		con.close(); // closes connection
 		return BA;
@@ -282,12 +288,18 @@ public class ATMDAOImpl implements ATMDAO {
 
 	@Override
 	public void withdraw(BankAccount BA, double val) throws SQLException {
+		
+		double Balance = checkbalance(BA); 
+		// have to put this here else will run into error
+		// As this method executes an SQL query & closes connection after
+		// If put below, will close connection and cause SQL error
+		
 		getConnection(); // starts up DB connection
 
 		ps = con.prepareStatement("UPDATE BankAccount Set BankBalance = ? Where UserID = ?"); // Create statement using SQL connection
 		
 		
-		ps.setDouble(1, BA.getBankBalance()-val);
+		ps.setDouble(1, Balance -val);
 		ps.setString(2, BA.getUserID());
 		
 		ps.executeUpdate();
@@ -299,12 +311,15 @@ public class ATMDAOImpl implements ATMDAO {
 
 	@Override
 	public void deposit(BankAccount BA,double val) throws SQLException {
+		
+		double Balance = checkbalance(BA);
+		
 		getConnection(); // starts up DB connection
 
 		ps = con.prepareStatement("UPDATE BankAccount Set BankBalance = ? Where UserID = ?"); // Create statement using SQL connection
 		
 		
-		ps.setDouble(1, BA.getBankBalance()+val);
+		ps.setDouble(1, Balance + val);
 		ps.setString(2, BA.getUserID());
 		
 		ps.executeUpdate();
@@ -315,9 +330,9 @@ public class ATMDAOImpl implements ATMDAO {
 	}
 
 	@Override
-	public void checkbalance(BankAccount BA) throws SQLException {
+	public double checkbalance(BankAccount BA) throws SQLException {
 		getConnection(); // starts up DB connection
-
+		double Balance = 0;
 		ps = con.prepareStatement("SELECT * FROM BankAccount Where UserID = ?"); // Create statement using SQL connection
 
 		ps.setString(1, BA.getUserID());
@@ -328,9 +343,12 @@ public class ATMDAOImpl implements ATMDAO {
 			System.out.println("Printing Bank Balance");
 			System.out.println("Bank Balance for : " + rs.getString("BankAccNo") + " is SGD " + rs.getDouble("BankBalance"));
 			System.out.println("======================================================================================");
+			Balance = rs.getDouble("BankBalance");
 			}
 		
 		con.close(); // closes connection
+		return Balance;
+		
 
 	}
 

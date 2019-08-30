@@ -3,6 +3,7 @@ package dbService;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+
 import dbController.TransactionMenu;
 import dbDAO.ATMDAO;
 import dbDAO.ATMDAOImpl;
@@ -10,10 +11,12 @@ import dbPOJO.OnlineLoginAccount;
 
 public class LoginService2Impl implements LoginService2 {
 
+	ATMDAO refDAO; // creates ATMDAO reference
+	
 	@Override
 	public void InvokeLogin() throws ClassNotFoundException, SQLException {
 
-		ATMDAO refDAO; // creates ATMDAO reference
+		
 		refDAO = new ATMDAOImpl(); // creates ATMDAOImpl object
 
 		OnlineLoginAccount OLA = new OnlineLoginAccount(); // creates new OnlineLoginAccount Obj

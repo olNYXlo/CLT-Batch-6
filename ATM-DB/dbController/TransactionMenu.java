@@ -3,16 +3,33 @@ package dbController;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+
 import dbPOJO.BankAccount;
 import dbService.CheckBalanceServiceImpl;
 import dbService.DepositServiceImpl;
+import dbService.ForgotPwServiceImpl;
+import dbService.LoginService2Impl;
+import dbService.RegisterServiceImpl;
 import dbService.WithdrawServiceImpl;
 
+
+
 public class TransactionMenu {
+	
+	static
+	CheckBalanceServiceImpl CBSI;
+	static
+	DepositServiceImpl DSI;
+	static
+	WithdrawServiceImpl WSI;
+	// Not sure why the reference to the Service Impl objects have to be labelled as static
+	
 
 	private static boolean loopcheck;
 
 	// launches the TransactionMenu after logging in
+	
+	
 
 	public static void setLoopcheck(boolean loopcheck) {
 		TransactionMenu.loopcheck = loopcheck;
@@ -45,7 +62,7 @@ public class TransactionMenu {
 
 			case 1:// checking available balance
 
-				CheckBalanceServiceImpl CBSI = new CheckBalanceServiceImpl();
+				CBSI = new CheckBalanceServiceImpl();
 				CBSI.InvokeCheckBalance(BA);
 
 				break;
@@ -53,7 +70,7 @@ public class TransactionMenu {
 
 			case 2:// deposit service
 
-				DepositServiceImpl DSI = new DepositServiceImpl();
+				DSI = new DepositServiceImpl();
 
 				DSI.InvokeDeposit(BA);
 
@@ -61,7 +78,7 @@ public class TransactionMenu {
 
 			case 3:// withdraw service
 
-				WithdrawServiceImpl WSI = new WithdrawServiceImpl();
+				WSI = new WithdrawServiceImpl();
 
 				WSI.InvokeWithdraw(BA);
 
