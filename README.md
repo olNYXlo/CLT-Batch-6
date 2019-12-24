@@ -9,4 +9,4 @@ For ATM (W Database) refer to ATM-DB package
 
 For Greedy Algorithm - Travelling Salesman Problem , refer to src/testing/GreedyAlgo.java
 
-Fundamental Java Coding Principles & funtionality in the packages called day--, to reflect what is learned on which day of the CLT programme. Main focus on OOP Concepts
+Fundamental Java Coding Principles & funtionality in the /src packages called day--, to reflect what is learned on which day of the CLT programme. Main focus on OOP Concepts
