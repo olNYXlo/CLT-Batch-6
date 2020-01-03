@@ -19,7 +19,6 @@ public class Collision {
 			System.out.println("Time taken :" + time);
 			System.out.println("Total Time taken : " + totalTime + " hrs");
 			distTravelledByA += (40*time);
-			
 			distTravelledByB -= (100*time);
 			
 		}
